@@ -3,4 +3,4 @@ plugins {
     id("toni.blahaj")
 }
 
-stonecutter active "1.21.5-neoforge" /* [SC] DO NOT EDIT */
+stonecutter active "26.2-neoforge" /* [SC] DO NOT EDIT */

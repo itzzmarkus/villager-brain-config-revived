@@ -8,7 +8,11 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.PathfinderMob;
+#if mc >= 262
+import net.minecraft.world.entity.npc.villager.Villager;
+#else
 import net.minecraft.world.entity.npc.Villager;
+#endif
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.StairBlock;

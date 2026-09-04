@@ -5,7 +5,7 @@ plugins {
 blahaj {
 	config {
 		// yarn()
-//		 versionedAccessWideners()
+		versionedAccessWideners()
 	}
 	setup {
 //		txnilib("1.0.23")
@@ -24,4 +24,16 @@ blahaj {
 			.addPlatform("1.21.1-neoforge", "neoforge-1.21.1-1.0.7")
 			.addPlatform("1.21.1-fabric", "fabric-1.21.1-1.0.7") { required() } */
 	}
+}
+
+sourceSets {
+    main {
+        java.srcDir("build/chiseledSrc/main/java")
+    }
+}
+
+sourceSets {
+    main {
+        resources.srcDir("build/chiseledSrc/main/resources")
+    }
 }

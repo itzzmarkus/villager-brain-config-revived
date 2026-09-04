@@ -10,7 +10,11 @@ import net.minecraft.commands.arguments.coordinates.Vec3Argument;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
+#if mc >= 262
+import net.minecraft.world.entity.npc.villager.Villager;
+#else
 import net.minecraft.world.entity.npc.Villager;
+#endif
 import net.minecraft.world.phys.Vec3;
 
 public class MoveVillagerCommand {

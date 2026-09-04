@@ -4,7 +4,11 @@ import joshie.vbc.utils.MalusUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.util.GoalUtils;
+#if mc >= 262
+import net.minecraft.world.entity.npc.villager.Villager;
+#else
 import net.minecraft.world.entity.npc.Villager;
+#endif
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

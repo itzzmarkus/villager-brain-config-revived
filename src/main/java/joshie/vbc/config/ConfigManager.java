@@ -7,7 +7,11 @@ import joshie.vbc.utils.PerformanceTracker;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+#if mc >= 262
+import net.minecraft.resources.Identifier;
+#else
+
+#endif
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
@@ -82,14 +86,14 @@ public class ConfigManager {
 
                 if (avoid.block.startsWith("#")) {
                     p.isTag = true;
-                    ResourceLocation tagId = ResourceLocation.tryParse(avoid.block.substring(1));
+                    #if mc >= 262 Identifier #else ResourceLocation #endif tagId = #if mc >= 262 Identifier #else ResourceLocation #endif.tryParse(avoid.block.substring(1));
                     if (tagId != null) {
                         p.tag = TagKey.create(Registries.BLOCK, tagId);
                         processed.add(p);
                     }
                 } else {
                     p.isTag = false;
-                    ResourceLocation blockId = ResourceLocation.tryParse(avoid.block);
+                    #if mc >= 262 Identifier #else ResourceLocation #endif blockId = #if mc >= 262 Identifier #else ResourceLocation #endif.tryParse(avoid.block);
                     if (blockId != null && blockRegistry.containsKey(blockId)) {
                         #if mc <= 211
                         p.block = blockRegistry.get(blockId);
@@ -486,7 +490,7 @@ public class ConfigManager {
         String[] parts = blockId.split(":");
         if (parts.length != 2) return -1.0;
 
-        ResourceLocation resourceLocation = ResourceLocation.fromNamespaceAndPath(parts[0].substring(1), parts[1]);
+        #if mc >= 262 Identifier #else ResourceLocation #endif resourceLocation = #if mc >= 262 Identifier #else ResourceLocation #endif.fromNamespaceAndPath(parts[0].substring(1), parts[1]);
         Block block = null;
         #if mc <= 211
         block = BuiltInRegistries.BLOCK.get(resourceLocation);
@@ -499,7 +503,7 @@ public class ConfigManager {
             for (String key : penalties.keySet()) {
                 if (key.startsWith("#")) {
                     TagKey<Block> blockTag = TagKey.create(BuiltInRegistries.BLOCK.key(),
-                            ResourceLocation.fromNamespaceAndPath(key.substring(1).split(":")[0], key.substring(1).split(":")[1]));
+                            #if mc >= 262 Identifier #else ResourceLocation #endif.fromNamespaceAndPath(key.substring(1).split(":")[0], key.substring(1).split(":")[1]));
                     if (block.builtInRegistryHolder().is(blockTag)) {
                         return penalties.get(key);
                     }
@@ -511,7 +515,7 @@ public class ConfigManager {
                 for (String key : penalties.keySet()) {
                     if (key.startsWith("#")) {
                         TagKey<Item> itemTag = TagKey.create(BuiltInRegistries.ITEM.key(),
-                                ResourceLocation.fromNamespaceAndPath(key.substring(1).split(":")[0], key.substring(1).split(":")[1]));
+                                #if mc >= 262 Identifier #else ResourceLocation #endif.fromNamespaceAndPath(key.substring(1).split(":")[0], key.substring(1).split(":")[1]));
                         if (item.builtInRegistryHolder().is(itemTag)) {
                             return penalties.get(key);
                         }

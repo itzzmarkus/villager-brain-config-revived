@@ -5,7 +5,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Mob;
+#if mc >= 262
+import net.minecraft.world.entity.npc.villager.Villager;
+#else
 import net.minecraft.world.entity.npc.Villager;
+#endif
 import net.minecraft.world.level.pathfinder.Node;
 import net.minecraft.world.level.pathfinder.WalkNodeEvaluator;
 import net.minecraft.world.phys.AABB;

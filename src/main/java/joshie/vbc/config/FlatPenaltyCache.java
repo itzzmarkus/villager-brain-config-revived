@@ -2,7 +2,11 @@ package joshie.vbc.config;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.Block;
+#if mc >= 262
+import net.minecraft.world.entity.npc.villager.Villager;
+#else
 import net.minecraft.world.entity.npc.Villager;
+#endif
 import java.util.Arrays;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

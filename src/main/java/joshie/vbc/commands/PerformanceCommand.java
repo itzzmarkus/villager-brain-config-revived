@@ -17,7 +17,7 @@ public class PerformanceCommand {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(Commands.literal("villager_brain_config")
                 .then(Commands.literal("performance")
-                        .requires(source -> source.hasPermission(2))
+                        .requires(source -> #if mc >= 262 source.permissions().hasPermission(new net.minecraft.server.permissions.Permission.HasCommandLevel(net.minecraft.server.permissions.PermissionLevel.byId(2))) #else source.hasPermission(2) #endif)
                         .executes(ctx -> {
                             CommandSourceStack source = ctx.getSource();
                             
@@ -64,7 +64,7 @@ public class PerformanceCommand {
                             return Command.SINGLE_SUCCESS;
                         }))
                 .then(Commands.literal("clear-cache")
-                        .requires(source -> source.hasPermission(2))
+                        .requires(source -> #if mc >= 262 source.permissions().hasPermission(new net.minecraft.server.permissions.Permission.HasCommandLevel(net.minecraft.server.permissions.PermissionLevel.byId(2))) #else source.hasPermission(2) #endif)
                         .executes(ctx -> {
                             BlockPenaltyCache.clear();
                             FlatPenaltyCache.clear();
@@ -77,7 +77,7 @@ public class PerformanceCommand {
                             return Command.SINGLE_SUCCESS;
                         }))
                 .then(Commands.literal("reset-stats")
-                        .requires(source -> source.hasPermission(2))
+                        .requires(source -> #if mc >= 262 source.permissions().hasPermission(new net.minecraft.server.permissions.Permission.HasCommandLevel(net.minecraft.server.permissions.PermissionLevel.byId(2))) #else source.hasPermission(2) #endif)
                         .executes(ctx -> {
                             PerformanceTracker.reset();
                             
