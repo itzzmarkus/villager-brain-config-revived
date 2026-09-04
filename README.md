@@ -1,4 +1,5 @@
-# Villager Brain Config
+# Villager Brain Config Revived
+**joshie.app's original work, ported to 26.2. original GitHub repo can be found [here](https://github.com/joshie-app/villager-brain-config)**
 
 Villager Brain Config is a lightweight Minecraft mod that gives server owners, modpack creators, and technical players full control over villager movement penalties (maluses). Fully configure how villagers perceive different terrain types, influence pathfinding, and make villages feel smarter (or dumber) with a config file.
 
@@ -20,7 +21,7 @@ Villager Brain Config is a lightweight Minecraft mod that gives server owners, m
 
 ## Compatibility
 
-- Minecraft 1.21.1 planned (more versions down the road)
+- Minecraft 26.2 (more versions down the road. for 1.21.1 - 1.21.8, see [original repo](https://github.com/joshie-app/villager-brain-config))
 - Fabric and NeoForge support
 - Supports modded villager professions and any modded blocks or tags
 
